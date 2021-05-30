@@ -25,11 +25,8 @@ exports.twitter = () => {};
 exports.sales = (req, res) => {
   populateSales().then((result) => {
     // console.log(result);
-    if (!result){
-      return res.render('error', {message:})
-    };
     console.log('data', JSON.stringify(result));
-    res.render('table', { data: result, path: req.path });
+    res.render('table', { data: result });
     // console.log(JSON.stringify(result[0]));
   });
 };
