@@ -1,0 +1,29 @@
+extends tableLayout
+
+block content
+  div
+      table 
+        thread 
+        tbody 
+          tr 
+            th ID 
+            th Full Name  
+            th Email 
+            th Item 
+            th Quantity 
+            th Total Price
+        each post, i in data 
+          tr 
+            td #{data[i].id}
+            td #{data[i].fullname}
+            td #{data[i].email}
+            td #{data[i].item}
+            td #{data[i].quantity}
+            td #{data[i].total_price}
+  div
+    a(href="salesdetail")
+      button(type="button") pivot
+    //- button(onclick=`window.open('salesdetail', '_blank');`)  Pivot
+    //- button(onclick=`console.log(#{path})`) pivot
+
+        

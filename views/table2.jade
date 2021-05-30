@@ -1,0 +1,29 @@
+extends tableLayout
+
+block content
+  div
+      table 
+        thread 
+        tbody 
+          tr 
+            th Full Name  
+            th Email 
+            th Sepatu 
+            th Sendal
+            th Baju 
+            th celana 
+            th jaket 
+        each post, i in data 
+          tr 
+            td #{data[i].fullname}
+            td #{data[i].email}
+            td #{data[i].sepatu}
+            td #{data[i].sandal}
+            td #{data[i].baju}
+            td #{data[i].celana}
+            td #{data[i].jaket}
+  div
+    a(href="sales")
+      button(type="button") pivot
+
+        
