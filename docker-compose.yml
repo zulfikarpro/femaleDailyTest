@@ -16,7 +16,6 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-      image: localhost:5000/femaledailytestapps
     environment:
       - NODE_ENV=development
     env_file:
