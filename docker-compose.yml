@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    ports: 
+      - '5432:5432'
+      - '3001:3001'
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - testing-db:/var/lib/postgresql/data
+
+  apps:
+    build:
+      context: .
+      dockerfile: dockerfile
+      image: localhost:5000/femaledailytestapps
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - .env
+    network_mode: service:postgres
+    depends_on:
+      - postgres
+    # ports:
+    #   - '3001:3001'
+        
+volumes:
+  testing-db:
